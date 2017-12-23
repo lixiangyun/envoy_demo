@@ -1,0 +1,48 @@
+{
+	"lds": {
+		"cluster": "xds_service",
+		"refresh_delay_ms": 60000
+	},
+	"listeners": [
+	
+	],
+	"admin": {
+		"access_log_path": "./envoy_access.log",
+		"address": "tcp://127.0.0.1:9001"
+	},
+	"cluster_manager": {
+		"clusters": [{
+			"name": "xds_service",
+			"connect_timeout_ms": 250,
+			"type": "static",
+			"lb_type": "round_robin",
+			"hosts": [{
+				"url": "tcp://128.5.0.20:1001"
+			}]
+		}],
+		"cds": {
+			"cluster": {
+				"name": "cds_service",
+				"connect_timeout_ms": 250,
+				"type": "static",
+				"lb_type": "round_robin",
+				"hosts": [{
+					"url": "tcp://128.5.0.20:1001"
+				}]
+			},
+			"refresh_delay_ms": 10000
+		},
+		"sds": {
+			"cluster": {
+				"name": "sds_service",
+				"connect_timeout_ms": 250,
+				"type": "static",
+				"lb_type": "round_robin",
+				"hosts": [{
+					"url": "tcp://128.5.0.20:1001"
+				}]
+			},
+			"refresh_delay_ms": 3000
+		}
+	}
+}
