@@ -1,0 +1,16 @@
+version: '2'
+services:
+
+  python:
+    image: linimbus/grpcbridge_python:v1.0
+    volumes:
+      - ./config/s2s-python-envoy.json:/etc/s2s-python-envoy.json
+    expose:
+      - "9001"
+
+  grpc:
+    image: linimbus/grpcbridge_grpc:v1.0
+    volumes:
+      - ./config/s2s-grpc-envoy.json:/etc/s2s-grpc-envoy.json
+    expose:
+      - "9211"
