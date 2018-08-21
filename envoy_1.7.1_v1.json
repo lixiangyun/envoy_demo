@@ -1,0 +1,428 @@
+{
+	"node": {
+		"id": "sidecar~172.28.0.8~172.28.0.8.service.consul~service.consul",
+		"cluster": "details-v1",
+		"metadata": {
+			"ISTIO_PROXY_SHA": "istio-proxy:6166ae7ebac7f630206b2fe4e6767516bf198313",
+			"ISTIO_PROXY_VERSION": "1.0.0",
+			"ISTIO_VERSION": "1.0.0",
+			"istio": "sidecar"
+		}
+	},
+	"listeners": [{
+		"name": "...",
+		"address": "tcp://127.0.0.1:80",
+		"filters": [{
+			"name": "client_ssl_auth",
+			"config": {
+				"auth_api_cluster": "string",
+				"stat_prefix": "string",
+				"refresh_delay_ms": "int",
+				"ip_white_list": ["192.168.3.0/24",
+				"50.1.2.3/32",
+				"10.15.0.0/16",
+				"2001:abcd::/64"]
+			}
+		},
+		{
+			"name": "echo",
+			"config": {
+				
+			}
+		},
+		{
+			"name": "http_connection_manager",
+			"config": {
+				"codec_type": "http1/http2/auto",
+				"stat_prefix": "...",
+				"rds": {
+					"cluster": "string",
+					"route_config_name": "string",
+					"refresh_delay_ms": "int"
+				},
+				"route_config": {
+					"validate_clusters": "...",
+					"virtual_hosts": [{
+						"name": "...",
+						"domains": [],
+						"routes": [{
+							"prefix": "...",
+							"path": "...",
+							"regex": "...",
+							"cluster": "...",
+							"cluster_header": "...",
+							"weighted_clusters": {
+								"clusters": [{
+									"name": "...",
+									"weight": "..."
+								}],
+								"runtime_key_prefix": "..."
+							},
+							"host_redirect": "...",
+							"path_redirect": "...",
+							"prefix_rewrite": "...",
+							"host_rewrite": "...",
+							"auto_host_rewrite": "...",
+							"case_sensitive": "...",
+							"use_websocket": "...",
+							"timeout_ms": "...",
+							"runtime": "{...}",
+							"retry_policy": {
+								"retry_on": "...",
+								"num_retries": "...",
+								"per_try_timeout_ms": "..."
+							},
+							"shadow": {
+								"cluster": "...",
+								"runtime_key": "..."
+							},
+							"priority": "...",
+							"headers": [{
+								"name": "...",
+								"value": "...",
+								"regex": "...",
+								"range_match": {
+									"start": "...",
+									"end": "..."
+								}
+							}],
+							"rate_limits": [],
+							"include_vh_rate_limits": "...",
+							"hash_policy": {
+								"header_name": "..."
+							},
+							"request_headers_to_add": [],
+							"opaque_config": [],
+							"cors": {
+								"enabled": false,
+								"allow_origin": ["http://foo.example"],
+								"allow_methods": "POST, GET, OPTIONS",
+								"allow_headers": "Content-Type",
+								"allow_credentials": false,
+								"expose_headers": "X-Custom-Header",
+								"max_age": "86400"
+							},
+							"decorator": {
+								"operation": "string"
+							}
+						}],
+						"require_ssl": "...",
+						"virtual_clusters": [],
+						"rate_limits": [],
+						"request_headers_to_add": [{
+							"key": "header1",
+							"value": "value1"
+						},
+						{
+							"key": "header2",
+							"value": "value2"
+						}]
+					}],
+					"internal_only_headers": ["header1",
+					"header2"],
+					"response_headers_to_add": [{
+						"key": "header1",
+						"value": "value1"
+					},
+					{
+						"key": "header2",
+						"value": "value2"
+					}],
+					"response_headers_to_remove": ["header1",
+					"header2"],
+					"request_headers_to_add": [{
+						"key": "header1",
+						"value": "value1"
+					},
+					{
+						"key": "header2",
+						"value": "value2"
+					}]
+				},
+				"filters": [{
+					"name": "buffer",
+					"config": {
+						"max_request_bytes": "...",
+						"max_request_time_s": "..."
+					}
+				},
+				{
+					"name": "cors",
+					"config": {
+						
+					}
+				},
+				{
+					"name": "http_dynamo_filter",
+					"config": {
+						
+					}
+				},
+				{
+					"name": "fault",
+					"config": {
+						"abort": "{...}",
+						"delay": "{...}",
+						"upstream_cluster": "...",
+						"headers": [],
+						"downstream_nodes": []
+					}
+				},
+				{
+					"name": "grpc_http1_bridge",
+					"config": {
+						
+					}
+				},
+				{
+					"name": "grpc_json_transcoder",
+					"config": {
+						"proto_descriptor": "proto.pb",
+						"services": ["grpc.service.Service"],
+						"print_options": {
+							"add_whitespace": false,
+							"always_print_primitive_fields": false,
+							"always_print_enums_as_ints": false,
+							"preserve_proto_field_names": false
+						}
+					}
+				},
+				{
+					"name": "grpc_web",
+					"config": {
+						
+					}
+				},
+				{
+					"name": "health_check",
+					"config": {
+						"pass_through_mode": "...",
+						"endpoint": "...",
+						"cache_time_ms": "..."
+					}
+				},
+				{
+					"name": "lua",
+					"config": {
+						"inline_code": "..."
+					}
+				},
+				{
+					"name": "rate_limit",
+					"config": {
+						"domain": "...",
+						"stage": "...",
+						"request_type": "...",
+						"timeout_ms": "..."
+					}
+				},
+				{
+					"name": "router",
+					"config": {
+						"dynamic_stats": "...",
+						"start_child_span": "..."
+					}
+				},
+				{
+					"name": "squash",
+					"config": {
+						"cluster": "...",
+						"attachment_template": "{...}",
+						"attachment_timeout_ms": "...",
+						"attachment_poll_period_ms": "...",
+						"request_timeout_ms": "..."
+					}
+				}],
+				"add_user_agent": "...",
+				"tracing": {
+					"tracing": {
+						"operation_name": "...",
+						"request_headers_for_tags": []
+					}
+				},
+				"http1_settings": "{...}",
+				"http2_settings": "{...}",
+				"server_name": "string",
+				"idle_timeout_s": "int",
+				"drain_timeout_ms": "int",
+				"access_log": [{
+					"path": "...",
+					"format": "...",
+					"filter": "{...}"
+				}],
+				"use_remote_address": "...",
+				"forward_client_cert": "...",
+				"set_current_client_cert": "...",
+				"generate_request_id": "..."
+			}
+		},
+		{
+			"name": "mongo_proxy",
+			"config": {
+				"stat_prefix": "...",
+				"access_log": "...",
+				"fault": {
+					"fixed_delay": {
+						"percent": "...",
+						"duration_ms": "..."
+					}
+				}
+			}
+		},
+		{
+			"name": "ratelimit",
+			"config": {
+				"stat_prefix": "...",
+				"domain": "...",
+				"descriptors": [],
+				"timeout_ms": "..."
+			}
+		},
+		{
+			"name": "redis_proxy",
+			"config": {
+				"cluster_name": "...",
+				"conn_pool": "{...}",
+				"stat_prefix": "..."
+			}
+		},
+		{
+			"name": "tcp_proxy",
+			"config": {
+				"stat_prefix": "...",
+				"route_config": {
+					"cluster": "...",
+					"destination_ip_list": ["192.168.3.0/24",
+					"50.1.2.3/32",
+					"10.15.0.0/16",
+					"2001:abcd::/64"],
+					"destination_ports": "1-1024,2048-4096,12345",
+					"source_ip_list": ["192.168.3.0/24",
+					"50.1.2.3/32",
+					"10.15.0.0/16",
+					"2001:abcd::/64"],
+					"source_ports": "1-1024,2048-4096,12345"
+				},
+				"access_log": [{
+					"path": "...",
+					"format": "...",
+					"filter": "{...}"
+				}]
+			}
+		}],
+		"ssl_context": {
+			"cert_chain_file": "...",
+			"private_key_file": "...",
+			"alpn_protocols": "...",
+			"alt_alpn_protocols": "...",
+			"ca_cert_file": "...",
+			"verify_certificate_hash": "...",
+			"verify_subject_alt_name": [],
+			"crl_file": "...",
+			"cipher_suites": "...",
+			"ecdh_curves": "...",
+			"session_ticket_key_paths": []
+		},
+		"bind_to_port": "...",
+		"use_proxy_proto": "...",
+		"use_original_dst": "...",
+		"per_connection_buffer_limit_bytes": "...",
+		"drain_type": "..."
+	}],
+	"stats_config": {
+		"use_all_default_tags": false
+	},
+	"admin": {
+		"access_log_path": "/dev/stdout",
+		"profile_path": "/var/log/envoy/envoy.prof",
+		"address": "tcp://127.0.0.1:1234"
+	},
+	"dynamic_resources": {
+		"lds_config": {
+			"ads": {
+				
+			}
+		},
+		"cds_config": {
+			"ads": {
+				
+			}
+		},
+		"ads_config": {
+			"api_type": "GRPC",
+			"refresh_delay": {
+				"seconds": 1,
+				"nanos": 0
+			},
+			"grpc_services": [{
+				"envoy_grpc": {
+					"cluster_name": "xds-grpc"
+				}
+			}]
+		}
+	},
+	"static_resources": {
+		"clusters": [{
+			"name": "xds-grpc",
+			"type": "STRICT_DNS",
+			"connect_timeout": {
+				"seconds": 1,
+				"nanos": 0
+			},
+			"lb_policy": "ROUND_ROBIN",
+			"hosts": [{
+				"socket_address": {
+					"address": "8.1.236.127",
+					"port_value": 5000
+				}
+			}],
+			"circuit_breakers": {
+				"thresholds": [{
+					"priority": "default",
+					"max_connections": "100000",
+					"max_pending_requests": "100000",
+					"max_requests": "100000"
+				},
+				{
+					"priority": "high",
+					"max_connections": "100000",
+					"max_pending_requests": "100000",
+					"max_requests": "100000"
+				}]
+			},
+			"upstream_connection_options": {
+				"tcp_keepalive": {
+					"keepalive_time": 300
+				}
+			},
+			"http2_protocol_options": {
+				
+			}
+		},
+		{
+			"name": "zipkin",
+			"type": "STRICT_DNS",
+			"connect_timeout": {
+				"seconds": 1
+			},
+			"lb_policy": "ROUND_ROBIN",
+			"hosts": [{
+				"socket_address": {
+					"address": "127.0.0.1",
+					"port_value": 9411
+				}
+			}]
+		}]
+	},
+	"tracing": {
+		"http": {
+			"driver": {
+				"type": "zipkin",
+				"config": {
+					"collector_cluster": "zipkin",
+					"collector_endpoint": "..."
+				}
+			}
+		}
+	}
+}
